@@ -18,18 +18,22 @@ First, you'll need to get your environment set up. We don't want you wasting you
 
 ### pulling the repo
 Now you'll need to pull down a copy of our repo. Set up a folder for where you want to work and then:
+
 `git clone https://github.com/gadventures/polaris-interview.git` or `git clone git@github.com:gadventures/polaris-interview.git`
 
 Next you'll have to install the requirements:
+
 `pip install -r requirements.txt`
 
-### create a new branch
+### Create a new branch
 Before you dive into the code, we want you do create a new branch to do your work. The reason for this is so that you can issue a pull request, which will allow us to review your code. So to create a new branch:
+
 `git checkout -b your_branch_name`
 
-*Note:* Make sure you put your name in the branch so we can identify it.
+**Note: Make sure you put your name in the branch so we can identify it.**
 
 You'll want to make sure you're doing commits along the way:
+
 `git commit -ma "your message here"
 
 That's good for us and you. It helps us by letting us see your thought processes, and it helps you by making save points.
@@ -39,6 +43,7 @@ We want you to create an application that lists Trips via a template and API. Th
 
 ## When you're finished
 Once you're ready to submit, you can create a pull request:
+
 `git request-pull your_branch_name https://github.com/gadventures/polaris-interview master`
 
 We'll be notified, and then we can look it over.
