@@ -9,6 +9,7 @@ We'd like to get a sense of your work! We're looking for well-documented code, t
 
 ## Getting started
 **Not part of the 4-hour time frame**
+
 First, you'll need to get your environment set up. Here's a quick TODO list, to get things going. We've also added more detailed explanations on some of the tasks.
 
 - [install pip](http://stackoverflow.com/questions/17271319/installing-pip-on-mac-os-x)
