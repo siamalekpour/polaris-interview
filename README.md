@@ -42,8 +42,4 @@ That's good for us and you. It helps us by letting us see your thought processes
 We want you to create an application that lists Trips via a template and API. The Trip can be as detailed as you wish to make it with the end goal of being able to view all of the existing trips via `https://127.0.0.1:8000/` and via the API at `https://127.0.0.1:8000/api/`
 
 ## When you're finished
-Once you're ready to submit, you can create a pull request:
-
-`git request-pull your_branch_name https://github.com/gadventures/polaris-interview master`
-
-We'll be notified, and then we can look it over.
+Once you're ready to submit, you can create a pull request on the github project page. We'll be notified, and then we can look it over.
