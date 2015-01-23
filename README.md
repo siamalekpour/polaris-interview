@@ -2,7 +2,7 @@
 Sample project for gauging interviewee knowledge and process.
 
 ## Synopsis
-Using the Django REST framework, we want you to display a list of trips. We don't think this should take you more than 4 hours or so. You're welcome to spend more time in it if you like, but that shouldn't be needed. The deadline is Monday Jan. 26th by 9am.
+Using the Django REST framework, we want you to display a list of trips. We don't think this should take you more than 4 hours or so. You're welcome to spend more time in it if you like, but that shouldn't be needed. **The deadline is Monday Jan. 26th by 9am.**
 
 ## What's the end goal
 The point of this is to see how you work. We're looking for well-documented code that not only explains _what_ you're doing, but also _why_ you are doing it. We want to understand the how and why of you putting this together. We're looking for your understanding in the structure of the project, as well as why you opted to do things the way that you did.
@@ -12,11 +12,11 @@ First, you'll need to get your environment set up. We don't want you wasting you
 
 - [install pip](http://stackoverflow.com/questions/17271319/installing-pip-on-mac-os-x)
 - [install git](https://help.github.com/articles/set-up-git/)
-- [clone repo](https://github.com/gadventures/polaris-interview)
+- [clone repo](https://github.com/gadventures/polaris-interview/blob/master/README.md#pulling-the-repo)
 - Install requirements `pip install -r requirements.txt`
 - Run Server `python manage.py runserver`
 
-### pulling the repo
+### Pulling the repo
 Now you'll need to pull down a copy of our repo. Set up a folder for where you want to work and then:
 
 `git clone https://github.com/gadventures/polaris-interview.git` or `git clone git@github.com:gadventures/polaris-interview.git`
@@ -34,7 +34,7 @@ Before you dive into the code, we want you do create a new branch to do your wor
 
 You'll want to make sure you're doing commits along the way:
 
-`git commit -ma "your message here"
+`git commit -ma "your message here"`
 
 That's good for us and you. It helps us by letting us see your thought processes, and it helps you by making save points.
 
