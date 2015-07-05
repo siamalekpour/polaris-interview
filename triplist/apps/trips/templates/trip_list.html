@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans 'All My Travels' %} - {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{% trans 'All My Travels' %}</h1>
+                {% for trip in trips %}
+                    <div class="box">
+                        <p>{{ trip.country.continent }} - {{ trip.country }}</p>
+                        <h2><a href="{{ trip.get_absolute_url }}">{{ trip.name }}</a></h2>
+                        <p>{{ trip.type }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

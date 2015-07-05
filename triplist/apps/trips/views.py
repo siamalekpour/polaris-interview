@@ -1,12 +1,9 @@
-from django.http import Http404, HttpResponseNotFound
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseNotFound
 from django.views.generic import TemplateView
 from rest_framework import mixins, generics
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
-from models import *
 from serializers import *
+
 
 # Create your views here.
 class TripListView(TemplateView):
@@ -14,8 +11,8 @@ class TripListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(TripListView, self).get_context_data(**kwargs)
-        context['trips'] = Trip.objects.all()
-        return context
+        trips = Trip.objects.all()
+        return {'trips': trips}
 
 
 class TripDetailView(TemplateView):
@@ -31,7 +28,15 @@ class TripDetailView(TemplateView):
             context['trip'] = trip
             context['travelers'] = trip.traveler_set.all()
             context['destinations'] = trip.destination_set.all()
+
+            # TODO: Use/Create a responsive javascript masonry plugin.
+            # TODO: For now I'm splitting media into two lists to show seporatly in two columns the template.
+            media = Media.objects.filter(destination__trip=trip)
+            context['temp_media_1'] = media[::2]
+            context['temp_media_2'] = media[1::2]
+
             return context
+
 
 
 class TripApiList(mixins.ListModelMixin, generics.GenericAPIView):

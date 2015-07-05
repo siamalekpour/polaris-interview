@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}{% endblock  %}{% trans 'Trip List' %}</title>
 
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,300">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:700,400,300">
         <link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css' %}">
         {% block styles %}{% endblock %}
@@ -18,18 +18,20 @@
     </head>
 
     <body>
+        {% include 'icons.svg' %}
+
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#triplist-nav" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="#">TripListr</a>
+                    <a class="navbar-brand" href="/"><img src="{% static 'images/g-adventures-logo.jpg' %}"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="triplist-nav">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/">{% trans 'All My Trips' %}</a></li></ul>
+                        <li><a href="/">{% trans 'All My Trips' %}</a></li></ul>
                 </div>
             </div>
         </nav>

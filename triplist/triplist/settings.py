@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Basic App
-    'trips',
+    'apps.accounts',
+    'apps.trips',
 
     # API
     'rest_framework',

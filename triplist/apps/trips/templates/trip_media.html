@@ -1,0 +1,21 @@
+
+{# Temporary file, I didn't use a masonry plugin in the trip detail page. #}
+{# So instead of repeating code, I put the repetition in this file #}
+{# Must fix at a later time #}
+<div class="box">
+    <p class="media-destination">
+        <svg class="icon icon-location"><use xlink:href="#icon-location"></use></svg>
+        {{ m.destination }}</p>
+    <p class="media-destination-date">{{ m.destination.date }}</p>
+    <img class="img-responsive" src="{{ m.file.url }}">
+    <ul class="media-comments">{% for comment in m.mediacomment_set.all %}
+        <li class="row">
+            <div class="avatar col-md-2">
+                <img src="{{ comment.user.profile.picture.url }}"></div>
+            <div class="comment col-md-10">
+                <p class="name">{{ comment.user.profile }}</p>
+                <p class="body">{{ comment.comment }}</p>
+            </div>
+        </li>
+    {% endfor %}</ul>
+</div>

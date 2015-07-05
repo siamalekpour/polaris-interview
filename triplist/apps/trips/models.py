@@ -12,19 +12,6 @@ from django.contrib.auth.models import User
 # create journals on places they visited, and upload images to each. After signing up of course.
 # This is a test so I thought their wouldn't be any harm in changing the objective a bit.
 
-
-class Profile(models.Model):
-    user = models.OneToOneField(User)
-    picture = models.ImageField(upload_to='profiles')
-
-    def __unicode__(self):
-        return '{0} {1}'.format(self.user.first_name, self.user.last_name).strip()
-
-    class Meta:
-        verbose_name = _('Profile')
-        verbose_name_plural = _('Profiles')
-
-
 class Continent(models.Model):
     name = models.CharField(_('Name'), max_length=100)
 
@@ -140,7 +127,7 @@ class Media(models.Model):
 
     destination = models.ForeignKey(Destination)
     file = models.FileField()
-    type = models.CharField(_('File type'), max_length=10)
+    type = models.CharField(_('File type'), max_length=10, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         self.type = self.get_type()
@@ -169,3 +156,10 @@ class MediaComment(models.Model):
     media = models.ForeignKey(Media)
     user = models.ForeignKey(User)
     comment = models.TextField()
+
+    def __unicode__(self):
+        return self.comment
+
+    class Meta:
+        verbose_name = _('Comment')
+        verbose_name_plural = _('Comments')

@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from trips import views as trip_views
-from triplist import settings
 
+from apps.trips import views as trip_views
+from triplist import settings
 
 urlpatterns = patterns('',
     url(r'^$',                 trip_views.TripListView.as_view(),   name='trip-list'),

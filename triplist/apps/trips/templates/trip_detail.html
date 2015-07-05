@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{{ trip.name }} - {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <ol id="country-breadcrumb" class="breadcrumb">
+                    <li>{{ trip.country.continent }}</li>
+                    <li>{{ trip.country }}</li></ol>
+                <h1>{{ trip.name }}</h1>
+                <p>{{ trip.type }}</p>
+
+                <div id="trip-map"></div>
+            </div>
+
+            <div class="col-md-3">
+                <div id="traveler-list" class="box">
+                    <h2>{% trans 'Travelers' %}</h2>
+                    <ul>
+                        {% for traveler in travelers %}
+                            <li>
+                                {% if traveler.user.profile.picture %}
+                                    <img alt="{{ traveler }}" src="{{ traveler.user.profile.picture.url }}">
+                                {% endif %}
+                                <span class="traveler-name">{{ traveler }}</span>
+                            </li>{% endfor %}</ul></div>
+            </div>
+            <div class="col-md-9">
+
+                <div id="media-actions" class="box">
+                    <a class="btn btn-sm">
+                        <svg class="icon icon-image"><use xlink:href="#icon-image"></use></svg>
+                        {% trans 'Upload Image' %}</a>
+                    <a class="btn btn-sm">
+                        <svg class="icon icon-book"><use xlink:href="#icon-book"></use></svg>
+                        {% trans 'Uploadate Journal' %}</a>
+                </div>
+
+                <div id="media-list" class="row">
+
+                    {# TODO: Use a masonry plugin instead of two seporate columns #}
+                    <div class="col-md-6">
+                        {% for m in temp_media_1 %}{% include 'trip_media.html' %}{% endfor %}
+                    </div>
+
+                    <div class="col-md-6">
+                        {% for m in temp_media_2 %}{% include 'trip_media.html' %}{% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="{% static 'scripts/plugs.js' %}"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $('#trip-map').gmap({
+                markers: [{% for destination in destinations %}
+                    {
+                        name: '{{ destination.name }}',
+                        type: '{{ destination.type }}',
+                        lat: '{{ destination.latitude }}',
+                        lng: '{{ destination.longitude }}'
+                    }{% if not forloop.last %},{% endif %}
+                {% endfor %}]
+            });
+        });
+    </script>
+{% endblock %}

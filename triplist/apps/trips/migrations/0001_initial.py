@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=100, verbose_name='Name')),
-                ('continent', models.ForeignKey(to='trips.Continent')),
+                ('continent', models.ForeignKey(to='apps.trips.Continent')),
             ],
             options={
                 'verbose_name': 'Country',
@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('file', models.FileField(upload_to=b'')),
                 ('type', models.CharField(max_length=10, verbose_name='File type')),
-                ('destination', models.ForeignKey(to='trips.Destination')),
+                ('destination', models.ForeignKey(to='apps.trips.Destination')),
             ],
             options={
                 'verbose_name': 'Media',
@@ -87,7 +87,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('comment', models.TextField()),
-                ('media', models.ForeignKey(to='trips.Media')),
+                ('media', models.ForeignKey(to='apps.trips.Media')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -111,7 +111,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=200, verbose_name='Name')),
-                ('country', models.ForeignKey(to='trips.Country')),
+                ('country', models.ForeignKey(to='apps.trips.Country')),
             ],
             options={
                 'verbose_name': 'Trip',
@@ -134,13 +134,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='trip',
             name='type',
-            field=models.ForeignKey(to='trips.TripType'),
+            field=models.ForeignKey(to='apps.trips.TripType'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='traveler',
             name='trip',
-            field=models.ForeignKey(to='trips.Trip'),
+            field=models.ForeignKey(to='apps.trips.Trip'),
             preserve_default=True,
         ),
         migrations.AddField(
@@ -152,13 +152,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='destination',
             name='trip',
-            field=models.ForeignKey(to='trips.Trip'),
+            field=models.ForeignKey(to='apps.trips.Trip'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='destination',
             name='type',
-            field=models.ForeignKey(to='trips.DestinationType'),
+            field=models.ForeignKey(to='apps.trips.DestinationType'),
             preserve_default=True,
         ),
     ]
