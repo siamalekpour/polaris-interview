@@ -1,19 +1,40 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
+{% extends 'base.html' %}
+{% load i18n static %}
 
-    <body>
+{% block title %}{{ trip.name }} - {% endblock %}
 
-        <ul>{% for trip in trips %}
-            <li>
-                <h2><a href="{{ trip.get_absolute_url }}">{{ trip.name }}</a></h2>
-                <p>{{ trip.country.continent }} - {{ trip.country }}, {{ trip.type }}</p>
-            </li>
-        {% endfor %}</ul>
+{% block body %}
 
-    </body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{% trans 'All My Trips' %}</h1>
+                <ul>{% for trip in trips %}
+                    <li>
+                        <h2><a href="{{ trip.get_absolute_url }}">{{ trip.name }}</a></h2>
+                        <p>{{ trip.country.continent }} - {{ trip.country }}, {{ trip.type }}</p></li>{% endfor %}</ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
-</html>
+
+{% block scripts %}
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="{% static 'scripts/plugs.js' %}"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $('#trip-map').gmap({
+                markers: [{% for destination in destinations %}
+                    {
+                        name: '{{ destination.name }}',
+                        type: '{{ destination.type }}',
+                        lat: '{{ destination.latitude }}',
+                        lng: '{{ destination.longitude }}'
+                    }{% if not forloop.last %},{% endif %}
+                {% endfor %}]
+            });
+        });
+    </script>
+{% endblock %}

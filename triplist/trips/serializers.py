@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from trips.models import *
+from .models import *
 
 
 class ContinentSerializer(ModelSerializer):

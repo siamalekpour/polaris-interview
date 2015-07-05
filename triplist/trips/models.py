@@ -18,7 +18,7 @@ class Profile(models.Model):
     picture = models.ImageField(upload_to='profiles')
 
     def __unicode__(self):
-        return '{0} {1}'.format(self.user.first_name, self.user.first_name).strip()
+        return '{0} {1}'.format(self.user.first_name, self.user.last_name).strip()
 
     class Meta:
         verbose_name = _('Profile')
@@ -89,7 +89,7 @@ class Traveler(models.Model):
     journal = models.TextField(_('Journal'), blank=True, null=True)
 
     def __unicode__(self):
-        return '{0} {1}'.format(self.user.first_name, self.user.first_name).strip()
+        return '{0} {1}'.format(self.user.first_name, self.user.last_name).strip()
 
     class Meta:
         verbose_name = _('Traveler')
